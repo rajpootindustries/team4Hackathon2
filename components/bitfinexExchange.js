@@ -16,8 +16,11 @@
 function checkPrice() {
   var ajaxConfig = {
     dataType: 'json',
-    method: 'POST',
-    url: 'https://www.bitstamp.net/api/v2/ticker/btcusd/',
+    method: 'GET',
+    url: '../server/api-proxy-bitfinex.php',
+    data: {
+      id: 'BTCUSD'
+    },
     // data: { "api_key": 'QxABQ0kzHe', name: studentName, course: studentCourse, grade: studentGrade },
     success: function (response) { console.log('success adding!', response) },
     error: function () {
