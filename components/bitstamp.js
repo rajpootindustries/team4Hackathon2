@@ -13,18 +13,55 @@
 //   $.ajax(ajaxConfig);
 // }
 
-class Okexchange extends Exchange {
+class Bitstamp extends Exchange {
   constructor(){
     super()
   }
-  checkPrice() {
+  checkPriceBtc() {
     var ajaxConfig = {
       dataType: 'json',
-      method: 'GET',
-      url: 'http localhost/team4hackathon2/api-proxy-okex.php',
+      method: 'POST',
+      url: 'https://www.bitstamp.net/api/v2/ticker/btcusd/',
       // data: { "api_key": 'QxABQ0kzHe', name: studentName, course: studentCourse, grade: studentGrade },
       success: function (response) {
-        console.log('success adding!', response) }.bind(this),
+        this.data.spotBTC = response.last;
+        console.log('success adding!', response.last) }.bind(this),
+      error: function () {
+        console.log('an error has occured in adding');
+      }
+    }
+
+    $.ajax(ajaxConfig);
+  }
+
+  checkPriceEth() {
+    var ajaxConfig = {
+      dataType: 'json',
+      method: 'POST',
+      url: 'https://www.bitstamp.net/api/v2/ticker/ethusd/',
+      // data: { "api_key": 'QxABQ0kzHe', name: studentName, course: studentCourse, grade: studentGrade },
+      success: function (response) {
+        this.data.spotETH = response.last;
+        console.log('success adding!', response.last)
+      }.bind(this),
+      error: function () {
+        console.log('an error has occured in adding');
+      }
+    }
+
+    $.ajax(ajaxConfig);
+  }
+
+  checkPriceLtc() {
+    var ajaxConfig = {
+      dataType: 'json',
+      method: 'POST',
+      url: 'https://www.bitstamp.net/api/v2/ticker/ltcusd/',
+      // data: { "api_key": 'QxABQ0kzHe', name: studentName, course: studentCourse, grade: studentGrade },
+      success: function (response) {
+        this.data.spotLTC = response.last;
+        console.log('success adding!', response.last)
+      }.bind(this),
       error: function () {
         console.log('an error has occured in adding');
       }
