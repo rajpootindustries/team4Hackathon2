@@ -1,6 +1,7 @@
 class Coinbase extends Exchange{
   constructor(){
     super();
+    this.exchangeName = "Coinbase";
     this.btcBuyPrice();
     this.btcSellPrice();
     this.btcSpotPrice();
@@ -143,7 +144,7 @@ class Coinbase extends Exchange{
       url: "https://api.coinbase.com/v2/prices/LTC-USD/spot",
       method: "get",
       success: function (response) {
-        this.data.spotETH = response.data.amount;
+        this.data.spotLTC = response.data.amount;
       }.bind(this),
       error: function (response) {
         console.log("Error, request returned", response);
