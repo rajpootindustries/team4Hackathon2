@@ -1,34 +1,32 @@
-// function addToServer(){
-//   var ajaxConfig = {
-//     dataType: 'json',
-//     method: 'GET',
-//     url: 'https://www.okex.com/api/index/v3/BTC-USD/constituents',
-//     // data: { "api_key": 'QxABQ0kzHe', name: studentName, course: studentCourse, grade: studentGrade },
-//     success: function (response) { console.log('success adding!', response) },
-//     error: function () {
-//       console.log('an error has occured in adding');
-//     }
-//   }
-
-//   $.ajax(ajaxConfig);
-// }
-
-function checkPrice() {
-  var ajaxConfig = {
-    dataType: 'json',
-    method: 'GET',
-    url: '../server/api-proxy-bitfinex.php',
-    data: {
-      id: 'BTCUSD'
-    },
-    // data: { "api_key": 'QxABQ0kzHe', name: studentName, course: studentCourse, grade: studentGrade },
-    success: function (response) { console.log('success adding!', response) },
-    error: function () {
-      console.log('an error has occured in adding');
-    }
+class Bitfinex {
+  constructor() {
+    this.bitfinexData = {};
+    this.checkPrice();
   }
-
-  $.ajax(ajaxConfig);
+  checkPrice() {
+    var ajaxConfig = {
+      dataType: 'json',
+      method: 'GET',
+      url: '../server/api-proxy-bitfinex.php',
+      data: {
+        id: 'BTCUSD'
+      },
+      success: function (response) {
+        for (var key in response) {
+          this.bitfinexData[key] = response[key];
+        }
+        console.log(this.bitfinexData);
+      }.bind(this),
+      error: function () {
+        console.log('an error has occured in adding');
+      }
+    }
+    $.ajax(ajaxConfig);
+  }
 }
 
-$(document).ready(checkPrice);
+$(document).ready(start);
+
+function start() {
+  var myBitfinex = new Bitfinex();
+}
