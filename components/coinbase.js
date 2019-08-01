@@ -40,7 +40,7 @@ class Coinbase extends Exchange{
       url: "https://api.coinbase.com/v2/prices/BTC-USD/sell",
       method: "get",
       success: function(response){
-        this.data.sellBTC = response.data.amount;
+        this.data.sellBTC = parseFloat(response.data.amount).toFixed(2);
       }.bind(this),
       error: function(response){
         console.log("Error, request returned", response);
@@ -55,7 +55,7 @@ class Coinbase extends Exchange{
       url: "https://api.coinbase.com/v2/prices/BTC-USD/spot",
       method: "get",
       success: function(response){
-        this.data.spotBTC = response.data.amount;
+        this.data.spotBTC = parseFloat(response.data.amount).toFixed(2);
       }.bind(this),
       error: function(response){
         console.log("Error, request returned", response);
@@ -101,7 +101,7 @@ class Coinbase extends Exchange{
       url: "https://api.coinbase.com/v2/prices/ETH-USD/spot",
       method: "get",
       success: function (response) {
-        this.data.spotETH = response.data.amount;
+        this.data.spotETH = parseFloat(response.data.amount).toFixed(2);
       }.bind(this),
       error: function (response) {
         console.log("Error, request returned", response);
@@ -147,7 +147,7 @@ class Coinbase extends Exchange{
       url: "https://api.coinbase.com/v2/prices/LTC-USD/spot",
       method: "get",
       success: function (response) {
-        this.data.spotLTC = response.data.amount;
+        this.data.spotLTC = parseFloat(response.data.amount).toFixed(2);
       }.bind(this),
       error: function (response) {
         console.log("Error, request returned", response);
