@@ -1,8 +1,8 @@
 <?php
 //questions?  Ask Dan Paschal daniel.paschal@learningfuze.com
-$proxyURL = "https://www.okex.com/api/index/v3/BTC-USD/constituents";
+$proxyURL = "https://api.bitfinex.com/v1/pubticker/{$_GET['id']}";
 //$proxyURL = "https://api.fortnitetracker.com/v1/profile/{$_GET['platform']}/{$_GET['player']}";
-$acceptableHeaders = ['TRN-Api-Key'];
+$acceptableHeaders = [];
 
 header('content-type: application/json');
 header("Access-Control-Allow-Origin: *");
