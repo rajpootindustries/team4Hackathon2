@@ -5,9 +5,11 @@ var exchangeArray = [];
 
 function initializeApp(){
   initializeExchanges();
-  for (let i=0; i < exchangeArray.length; i++){
-    exchangeArray[i].render();
-  }
+  setTimeout(function(){
+    for (let i = 0; i < exchangeArray.length; i++) {
+      exchangeArray[i].render();
+    }
+  }, 2000)
 }
 
 function initializeExchanges(){
