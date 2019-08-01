@@ -24,10 +24,10 @@ class Binance extends Exchange{
           console.log(this.lastPrices);
         }.bind(this),
         complete: function(){
-          this.dataType.spotBTC = this.lastPrices.BTCUSDT;
-          this.dataType.spotETH = this.lastPrices.ETHUSDT;
-          this.dataType.spotLTC = this.lastPrices.LTCUSDT;
-        }
+          this.data.spotBTC = this.lastPrices.BTCUSDT;
+          this.data.spotETH = this.lastPrices.ETHUSDT;
+          this.data.spotLTC = this.lastPrices.LTCUSDT;
+        }.bind(this)
       }
       $.ajax(ajaxConfig);
 
