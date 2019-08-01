@@ -1,7 +1,28 @@
 .container {
-  margin-top: 5%
+  margin-top: 5%;
+  border: 1px solid blue;
+  border-radius: 5%
 }
 
 .card {
   margin-bottom: 2%;
+}
+
+.card-body > .row {
+  display: block;
+}
+
+.coinRow {
+  margin-bottom: 3%;
+  margin-top: 3%;
+  border-bottom: 1px solid black;
+}
+
+.coinRow > .col {
+  font-weight: bold;
+  color: green;
+}
+
+h5 {
+  margin-bottom: 10%;
 }
