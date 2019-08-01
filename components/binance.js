@@ -17,6 +17,11 @@ class Binance {
         method: 'get',
         success: function (result) {
           this.binanceData = result;
+          if (this.binanceData.lastPrice < this.lastPrices[currentSymbol] ) {
+            $(".coinRow > .col").css('color', 'red');
+          } else {
+            $(".coinRow > .col").css('color', 'green');
+          }
           this.lastPrices[currentSymbol] = this.binanceData.lastPrice;
           this.lastPrices[currentSymbol] = parseFloat(this.lastPrices[currentSymbol]).toFixed(2);
           this.render();
