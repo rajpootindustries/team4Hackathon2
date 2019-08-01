@@ -13,7 +13,7 @@ class Bitfinex extends Exchange{
     var ajaxConfig = {
       dataType: 'json',
       method: 'GET',
-      url: '../server/api-proxy-bitfinex.php',
+      url: 'http://localhost/team4hackathon2/server/api-proxy-bitfinex.php',
       data: {
         id: 'BTCUSD'
       },
@@ -35,7 +35,7 @@ class Bitfinex extends Exchange{
     var ajaxConfig = {
       dataType: 'json',
       method: 'GET',
-      url: '../server/api-proxy-bitfinex.php',
+      url: 'http://localhost/team4hackathon2/server/api-proxy-bitfinex.php',
       data: {
         id: 'LTCUSD'
       },
@@ -57,7 +57,7 @@ class Bitfinex extends Exchange{
     var ajaxConfig = {
       dataType: 'json',
       method: 'GET',
-      url: '../server/api-proxy-bitfinex.php',
+      url: 'http://localhost/team4hackathon2/server/api-proxy-bitfinex.php',
       data: {
         id: 'ETHUSD'
       },

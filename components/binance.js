@@ -21,7 +21,7 @@ class Binance extends Exchange{
           this.binanceData = result;
           this.lastPrices[currentSymbol] = this.binanceData.lastPrice;
           this.lastPrices[currentSymbol] = parseFloat(this.lastPrices[currentSymbol]).toFixed(2);
-          this.render();
+          // this.render();
           console.log(this.lastPrices);
         }.bind(this),
         complete: function(){
