@@ -5,6 +5,7 @@ class Binance extends Exchange{
     this.symbols = ['BTCUSDT', 'ETHUSDT', 'LTCUSDT'];
     this.lastPrices = {};
     this.data.exchangeName = "binance";
+    this.getBinanceData();
   }
 
   getBinanceData() {
