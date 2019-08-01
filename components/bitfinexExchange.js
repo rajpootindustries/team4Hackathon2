@@ -76,9 +76,3 @@ class Bitfinex extends Exchange{
     $.ajax(ajaxConfig);
   }
 }
-
-$(document).ready(start);
-
-function start() {
-  var myBitfinex = new Bitfinex();
-}
