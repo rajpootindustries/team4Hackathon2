@@ -54,4 +54,5 @@ class Exchange{
     cardContainer.append(card);
     $('#cardRow').append(cardContainer);
   }
+
 }
