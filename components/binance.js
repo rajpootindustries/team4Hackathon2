@@ -1,5 +1,6 @@
-class Binance {
+class Binance extends Exchange{
   constructor() {
+    super();
     this.binanceData = null;
     // this.lastPrice = null;
     this.symbols = ['BTCUSDT', 'ETHUSDT', 'LTCUSDT'];
@@ -21,6 +22,11 @@ class Binance {
           this.lastPrices[currentSymbol] = parseFloat(this.lastPrices[currentSymbol]).toFixed(2);
           this.render();
           console.log(this.lastPrices);
+        }.bind(this),
+        complete: function(){
+          this.data.spotBTC = this.lastPrices.BTCUSDT;
+          this.data.spotETH = this.lastPrices.ETHUSDT;
+          this.data.spotLTC = this.lastPrices.LTCUSDT;
         }.bind(this)
       }
       $.ajax(ajaxConfig);
