@@ -5,8 +5,9 @@ class Binance extends Exchange{
     // this.lastPrice = null;
     this.symbols = ['BTCUSDT', 'ETHUSDT', 'LTCUSDT'];
     this.lastPrices = {};
-    this.render = this.render.bind(this);
-    this.render();
+    // this.render = this.render.bind(this);
+    this.data.exchangeName = "binance";
+    // this.render();
   }
 
   getBinanceData() {
@@ -20,7 +21,7 @@ class Binance extends Exchange{
           this.binanceData = result;
           this.lastPrices[currentSymbol] = this.binanceData.lastPrice;
           this.lastPrices[currentSymbol] = parseFloat(this.lastPrices[currentSymbol]).toFixed(2);
-          this.render();
+          // this.render();
           console.log(this.lastPrices);
         }.bind(this),
         complete: function(){
@@ -34,12 +35,7 @@ class Binance extends Exchange{
     }
   }
 
-  render() {
 
-    $(".row > #binanceBitcoin").html(this.lastPrices.BTCUSDT);
-    $(".row > #binanceEthereum").html(this.lastPrices.ETHUSDT);
-    $(".row > #binanceLitecoin").html(this.lastPrices.LTCUSDT);
-  }
 
 
 
