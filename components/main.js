@@ -5,6 +5,9 @@ var exchangeArray = [];
 
 function initializeApp(){
   initializeExchanges();
+  for (let i=0; i < exchangeArray.length; i++){
+    exchangeArray[i].render();
+  }
 }
 
 function initializeExchanges(){
