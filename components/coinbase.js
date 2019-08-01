@@ -155,5 +155,4 @@ class Coinbase extends Exchange{
     }
     $.ajax(ajaxConfig);
   }
-
 }
