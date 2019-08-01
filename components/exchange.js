@@ -6,7 +6,6 @@ class Exchange{
       spotBTC: null,
       spotETH: null,
       spotLTC: null,
-      makerFees: null,
       takerFees: null,
       exchangeFees: null,
     };

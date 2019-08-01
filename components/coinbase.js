@@ -13,7 +13,6 @@ class Coinbase extends Exchange{
     this.ltcSellPrice();
     this.ltcSpotPrice();
 
-    this.data.makerFees = 0.0015;
     this.data.takerFees = 0.0025;
     this.data.exchangeName = "coinbase";
   }

@@ -6,6 +6,7 @@ class Binance extends Exchange{
     this.lastPrices = {};
     this.data.exchangeName = "binance";
     this.getBinanceData();
+    this.data.takerFees = 0.001;
   }
 
   getBinanceData() {
