@@ -17,6 +17,7 @@ class Bitstamp extends Exchange {
   constructor(){
     super();
     this.data.exchangeFees = 0.0025;
+    this.data.exchangeName = "bitstamp";
   }
   checkPriceBtc() {
     var ajaxConfig = {

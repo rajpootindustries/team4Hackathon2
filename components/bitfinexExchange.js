@@ -7,6 +7,7 @@ class Bitfinex extends Exchange{
     this.checkPriceBTC();
     this.checkPriceLTC();
     this.checkPriceETH();
+    this.data.exchangeName = "bitfinex";
   }
   checkPriceBTC() {
     var ajaxConfig = {

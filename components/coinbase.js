@@ -1,7 +1,6 @@
 class Coinbase extends Exchange{
   constructor(){
     super();
-    this.exchangeName = "Coinbase";
     this.btcBuyPrice();
     this.btcSellPrice();
     this.btcSpotPrice();
@@ -16,6 +15,7 @@ class Coinbase extends Exchange{
 
     this.data.makerFees = 0.0015;
     this.data.takerFees = 0.0025;
+    this.data.exchangeName = "coinbase";
   }
 
   btcBuyPrice(){
