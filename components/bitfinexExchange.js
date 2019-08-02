@@ -23,6 +23,11 @@ class Bitfinex extends Exchange{
           this.bitfinexBTC[key] = response[key];
         }
         console.log(this.bitfinexBTC);
+        if (this.bitfinexBTC.last_Price < this.lastPrices[currentSymbol]) {
+          $(".coinRow > .col").css('color', 'red');
+        } else {
+          $(".coinRow > .col").css('color', 'green');
+        }
         this.data.spotBTC = this.bitfinexBTC.last_price;
 
       }.bind(this),
