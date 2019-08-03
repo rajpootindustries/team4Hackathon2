@@ -1,21 +1,15 @@
 .container {
   margin-top: 5%;
-  border: 1px solid blue;
-  border-radius: 5%
-}
-
-.card {
-  margin-bottom: 2%;
-}
-
-.card-body > .row {
-  display: block;
+  border: 8px solid silver;
+  border-radius: 5%;
+  background-color: black
 }
 
 .coinRow {
   margin-bottom: 3%;
   margin-top: 3%;
   border-bottom: 1px solid black;
+  color: bisque;
 }
 
 .coinRow > .col {
@@ -23,6 +17,24 @@
   color: green;
 }
 
+.exchangeTitle {
+  color: bisque;
+  margin-top: 5%;
+}
+
 h5 {
   margin-bottom: 10%;
+}
+
+html {
+  background-color: black
+}
+
+#arbitrageTitle {
+  text-align: center;
+  color: bisque;
+}
+
+.innerContainer {
+  margin-bottom: 5%;
 }

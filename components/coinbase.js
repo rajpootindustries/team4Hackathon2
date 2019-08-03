@@ -135,7 +135,7 @@ class Coinbase extends Exchange{
     }
     $.ajax(ajaxConfig);
   }
-
+  
   ltcSpotPrice() {
     var ajaxConfig = {
       datatype: "json",

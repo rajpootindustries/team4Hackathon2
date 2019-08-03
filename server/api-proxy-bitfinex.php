@@ -1,7 +1,6 @@
 <?php
 //questions?  Ask Dan Paschal daniel.paschal@learningfuze.com
 $proxyURL = "https://api.bitfinex.com/v1/pubticker/{$_GET['id']}";
-//$proxyURL = "https://api.fortnitetracker.com/v1/profile/{$_GET['platform']}/{$_GET['player']}";
 $acceptableHeaders = [];
 
 header('content-type: application/json');
@@ -15,9 +14,7 @@ $postparams = '';
 foreach($_POST as $key=>$value){
         $params.=("&$key=".urlencode($value));
 }
-
 $headers = apache_request_headers();
-
 $curl = curl_init();
 $headerParams = [];
 foreach($headers as $key=>$value){

@@ -8,16 +8,21 @@ class Binance extends Exchange{
     this.getBinanceData();
     this.data.takerFees = 0.001;
   }
-
+  
   getBinanceData() {
     for (let i = 0; i < this.symbols.length; i++){
       const currentSymbol = this.symbols[i];
       var ajaxConfig = {
         dataType: 'JSON',
-        url: "http://localhost/team4hackathon2/api-proxy-binance.php?symbol=" + currentSymbol,
+        url: "http://localhost/team4hackathon2/server/api-proxy-binance.php?symbol=" + currentSymbol,
         method: 'get',
         success: function (result) {
           this.binanceData = result;
+          if (this.binanceData.lastPrice < this.lastPrices[currentSymbol] ) {
+            $(".coinRow > .col").css('color', 'red');
+          } else {
+            $(".coinRow > .col").css('color', 'green');
+          }
           this.lastPrices[currentSymbol] = this.binanceData.lastPrice;
           this.lastPrices[currentSymbol] = parseFloat(this.lastPrices[currentSymbol]).toFixed(2);
           console.log(this.lastPrices);
@@ -29,13 +34,6 @@ class Binance extends Exchange{
         }.bind(this)
       }
       $.ajax(ajaxConfig);
-
     }
   }
-
-
-
-
-
-
 }

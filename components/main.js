@@ -2,7 +2,8 @@ $(document).ready(initializeApp);
 
 var exchanges = [Binance, Bitstamp, Coinbase, Bitfinex];
 var exchangeArray = [];
-var investment = 1000;
+var investment = 10000;
+setInterval(initializeExchanges, 30000);
 
 function initializeApp(){
   initializeExchanges();
@@ -17,7 +18,8 @@ function initializeApp(){
 
 function initializeExchanges(){
  for(let i = 0; i < exchanges.length; i++){
-   exchangeArray.push(new exchanges[i]);
+   exchangeArray[i] = new exchanges[i];
+   exchangeArray[i].render();
  }
 }
 
@@ -67,10 +69,18 @@ function arbitrage(returnCoinArr){
   var totalBuy = buyAmount * (1-returnCoinArr.minTakerFees);
   var sellAmount = totalBuy * returnCoinArr.max;
   var totalSell = sellAmount * (1-returnCoinArr.maxTakerFees);
+  var profit = totalSell - investment;
 
-  if(totalSell > 0){
-    $('.row').append($('<div>').text(': YES ' + totalSell));
-  } else {
-    $('.row').append($('<div>').text(': NO'));
-  }
+  $('#bitcoinStart').text(returnCoinArr.exchangeMinName);
+  $('#bitcoinEnd').text(returnCoinArr.exchangeMaxName);
+  $('#bitcoinMin').text(returnCoinArr.exchangeMin);
+  $('#bitcoinMax').text(returnCoinArr.max);
+  $('#bitcoinProfit').text(profit.toFixed(2));
+
+  let color = (profit > 0) ? 'green' : 'red';
+  $('#bitcoinProfit').css('color', color);
+}
+
+function displayArbitrage(returnCoinArr){
+  $('#bitcoinStart').text()
 }

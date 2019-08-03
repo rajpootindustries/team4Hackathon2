@@ -13,12 +13,12 @@
 
             <h5 class="row">
               <span class="col-md-2"></span>
-              <span class="col">Binance</span>
-              <span class="col">Bitstamp</span>
-              <span class="col">Coinbase</span>
-              <span class="col">Bitfinex</span>
+              <span class="col exchangeTitle">Binance</span>
+              <span class="col exchangeTitle">Bitfinex</span>
+              <span class="col exchangeTitle">GDAX</span>
+              <span class="col exchangeTitle">Bitstamp</span>
              </h5>
-            <!-- <p class="card-text"> -->
+
               <div class="row coinRow">
                 <div class="col-md-2">Bitcoin</div>
                 <span class="col" id="binanceBitcoin"></span>
@@ -26,6 +26,7 @@
                 <span class="col" id="coinbaseBitcoin"></span>
                 <span class="col" id="bitfinexBitcoin"></span>
               </div>
+
               <div class="row coinRow">
                 <div class="col-md-2">Ethereum</div>
                 <span class="col" id="binanceEthereum"></span>
@@ -33,6 +34,7 @@
                 <span class="col" id="coinbaseEthereum"></span>
                 <span class="col" id="bitfinexEthereum"></span>
               </div>
+
               <div class="row coinRow">
                 <div class="col-md-2">Litecoin</div>
                 <span class="col" id="binanceLitecoin"></span>
@@ -41,20 +43,34 @@
                 <span class="col" id="bitfinexLitecoin"></span>
               </div>
 
-                <div class="container">
-                  <h5 class="row">Arbitrage Trading Opportunities</h5>
-                </div>
-                <div class="container">
-                  <h5>Mass Trading Simulator</h5>
-                </div>
+                <div class="container-fluid innerContainer">
+                  <h5 id="arbitrageTitle">Arbitrage Trading Opportunities</h5>
+                  <h5 class="row">
+                    <span class="col-md-2"></span>
+                    <span class="col exchangeTitle">Start Exchange</span>
+                    <span class="col exchangeTitle">End Exchange</span>
+                    <span class="col exchangeTitle">Min Price</span>
+                    <span class="col exchangeTitle">Max Price</span>
+                    <span class="col exchangeTitle">Profit</span>
+                  </h5>
 
+                  <div class="row coinRow">
+                    <div class="col-md-2">Bitcoin</div>
+                    <span class="col" id="bitcoinStart"></span>
+                    <span class="col" id="bitcoinEnd"></span>
+                    <span class="col" id="bitcoinMin"></span>
+                    <span class="col" id="bitcoinMax"></span>
+                    <span class="col" id="bitcoinProfit"></span>
+                  </div>
 
+                </div>
   </div>
+
   <script src="./components/exchange.js"></script>
   <script src="./components/coinbase.js"></script>
   <script src="./components/bitstamp.js"></script>
   <script src="./components/binance.js"></script>
-  <script src="./components/bitfinexExchange.js"></script>
+  <script src="./components/bitfinex.js"></script>
   <script src="./components/main.js"></script>
 </body>
 
