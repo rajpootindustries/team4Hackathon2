@@ -7,13 +7,15 @@ class Bitfinex extends Exchange{
     this.checkPriceBTC();
     this.checkPriceLTC();
     this.checkPriceETH();
+    this.data.exchangeName = "bitfinex";
+    this.data.takerFees = 0.002;
   }
 
   checkPriceBTC() {
     var ajaxConfig = {
       dataType: 'json',
       method: 'GET',
-      url: '../server/api-proxy-bitfinex.php',
+      url: 'http://localhost/team4hackathon2/server/api-proxy-bitfinex.php',
       data: {
         id: 'BTCUSD'
       },
@@ -22,6 +24,11 @@ class Bitfinex extends Exchange{
           this.bitfinexBTC[key] = response[key];
         }
         console.log(this.bitfinexBTC);
+        if (this.bitfinexBTC.last_Price < this.lastPrices) {
+          $(".coinRow > .col").css('color', 'red');
+        } else {
+          $(".coinRow > .col").css('color', 'green');
+        }
         this.data.spotBTC = this.bitfinexBTC.last_price;
 
       }.bind(this),
@@ -35,7 +42,7 @@ class Bitfinex extends Exchange{
     var ajaxConfig = {
       dataType: 'json',
       method: 'GET',
-      url: '../server/api-proxy-bitfinex.php',
+      url: 'http://localhost/team4hackathon2/server/api-proxy-bitfinex.php',
       data: {
         id: 'LTCUSD'
       },
@@ -57,7 +64,7 @@ class Bitfinex extends Exchange{
     var ajaxConfig = {
       dataType: 'json',
       method: 'GET',
-      url: '../server/api-proxy-bitfinex.php',
+      url: 'http://localhost/team4hackathon2/server/api-proxy-bitfinex.php',
       data: {
         id: 'ETHUSD'
       },
@@ -75,10 +82,4 @@ class Bitfinex extends Exchange{
     }
     $.ajax(ajaxConfig);
   }
-}
-
-$(document).ready(start);
-
-function start() {
-  var myBitfinex = new Bitfinex();
 }
