@@ -3,7 +3,7 @@ $(document).ready(initializeApp);
 var exchanges = [Binance, Bitstamp, Coinbase, Bitfinex];
 var exchangeArray = [];
 var investment = 10000;
-setInterval(initializeExchanges, 30000);
+// setInterval(initializeExchanges, 30000);
 
 function initializeApp(){
   initializeExchanges();
