@@ -19,7 +19,6 @@ class Coinbase extends Exchange{
       url: "https://api.coinbase.com/v2/prices/BTC-USD/buy",
       method: "get",
       success: function(response){
-        console.log("Success! Request returned ", response);
         this.data.buyBTC = response.data.amount;
       }.bind(this),
       error: function(response){
@@ -135,7 +134,7 @@ class Coinbase extends Exchange{
     }
     $.ajax(ajaxConfig);
   }
-  
+
   ltcSpotPrice() {
     var ajaxConfig = {
       datatype: "json",

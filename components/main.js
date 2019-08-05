@@ -3,10 +3,13 @@ $(document).ready(initializeApp);
 var exchanges = [Binance, Bitstamp, Coinbase, Bitfinex];
 var exchangeArray = [];
 var investment = 10000;
+
 setInterval(initializeExchanges, 30000);
 
 function initializeApp(){
+
   initializeExchanges();
+
   setTimeout(function(){
     for (let i = 0; i < exchangeArray.length; i++) {
       exchangeArray[i].render();
@@ -27,19 +30,24 @@ function getBTC (){
   var returnBTC = {}
   var max = 0;
   var min = 10000000;
-  for (var exchanges in exchangeArray){
-    if (parseInt(exchangeArray[exchanges].data.spotBTC) > max){
-      max = parseInt(exchangeArray[exchanges].data.spotBTC);
-      returnBTC.max = parseInt(exchangeArray[exchanges].data.spotBTC);
-      returnBTC.exchangeMaxName = exchangeArray[exchanges].data.exchangeName;
-      returnBTC.minTakerFees = exchangeArray[exchanges].data.takerFees;
-    }
-    if (parseInt(exchangeArray[exchanges].data.spotBTC) < min ){
-      min = parseInt(exchangeArray[exchanges].data.spotBTC)
-      returnBTC.exchangeMin = parseInt(exchangeArray[exchanges].data.spotBTC);
-      returnBTC.exchangeMinName =exchangeArray[exchanges].data.exchangeName;
-      returnBTC.maxTakerFees = exchangeArray[exchanges].data.takerFees;
 
+  for (var exchanges in exchangeArray){
+
+    var exchange = exchangeArray[exchanges].data;
+    var { spotBTC, exchangeName, takerFees } = exchange;
+
+    if (parseInt(exchangeArray[exchanges].data.spotBTC) > max){
+      max = parseInt(exchange.spotBTC);
+      returnBTC.max = parseInt(exchange.spotBTC);
+      returnBTC.exchangeMaxName = exchange.exchangeName;
+      returnBTC.minTakerFees = exchange.takerFees;
+    }
+
+    if (parseInt(exchangeArray[exchanges].data.spotBTC) < min ){
+      min = parseInt(exchange.spotBTC)
+      returnBTC.exchangeMin = parseInt(exchange.spotBTC);
+      returnBTC.exchangeMinName = exchange.exchangeName;
+      returnBTC.maxTakerFees = exchange.takerFees;
     }
   }
   arbitrage(returnBTC);
@@ -77,7 +85,7 @@ function arbitrage(returnCoinArr){
   $('#bitcoinMax').text(returnCoinArr.max);
   $('#bitcoinProfit').text(profit.toFixed(2));
 
-  let color = (profit > 0) ? 'green' : 'red';
+  let color = (profit > 0) ? 'blue' : 'red';
   $('#bitcoinProfit').css('color', color);
 }
 

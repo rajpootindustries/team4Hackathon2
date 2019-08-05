@@ -15,7 +15,6 @@ class Bitstamp extends Exchange {
       url: 'https://www.bitstamp.net/api/v2/ticker/btcusd/',
       success: function (response) {
         this.data.spotBTC = response.last;
-        console.log('success adding!', response.last)
       }.bind(this),
       error: function () {
         console.log('an error has occured in adding');
@@ -46,7 +45,6 @@ class Bitstamp extends Exchange {
       url: 'https://www.bitstamp.net/api/v2/ticker/ltcusd/',
       success: function (response) {
         this.data.spotLTC = response.last;
-        console.log('success adding!', response.last)
       }.bind(this),
       error: function () {
         console.log('an error has occured in adding');

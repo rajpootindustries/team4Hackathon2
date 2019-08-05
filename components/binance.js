@@ -8,7 +8,7 @@ class Binance extends Exchange{
     this.getBinanceData();
     this.data.takerFees = 0.001;
   }
-  
+
   getBinanceData() {
     for (let i = 0; i < this.symbols.length; i++){
       const currentSymbol = this.symbols[i];
@@ -25,7 +25,6 @@ class Binance extends Exchange{
           }
           this.lastPrices[currentSymbol] = this.binanceData.lastPrice;
           this.lastPrices[currentSymbol] = parseFloat(this.lastPrices[currentSymbol]).toFixed(2);
-          console.log(this.lastPrices);
         }.bind(this),
         complete: function(){
           this.data.spotBTC = this.lastPrices.BTCUSDT;
