@@ -2,17 +2,11 @@ $(document).ready(initializeApp);
 
 var exchanges = [Binance, Bitstamp, Coinbase, Bitfinex];
 var exchangeArray = [];
-var investment = 10000;
+var investment = 250000;
 
 function initializeApp(){
 
   initializeExchanges();
-
-  setTimeout(function(){
-    for (let i = 0; i < exchangeArray.length; i++) {
-      // exchangeArray[i].render();
-    }
-  }, 2000)
   setTimeout(getBTC, 5000);
   setTimeout(getETH, 3000);
 }
@@ -20,7 +14,6 @@ function initializeApp(){
 function initializeExchanges(){
  for(let i = 0; i < exchanges.length; i++){
    exchangeArray[i] = new exchanges[i];
-  //  exchangeArray[i].render();
  }
 }
 

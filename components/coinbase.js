@@ -5,7 +5,7 @@ class Coinbase extends Exchange{
     this.SpotPrice("ETH");
     this.SpotPrice("LTC");
 
-    this.data.takerFees = 0.0025;
+    this.data.takerFees = 0.002;
     this.data.exchangeName = "coinbase";
   }
   SpotPrice(coinKey){

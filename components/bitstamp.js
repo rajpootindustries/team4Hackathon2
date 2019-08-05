@@ -1,7 +1,7 @@
 class Bitstamp extends Exchange {
   constructor(){
     super();
-    this.data.takerFees = 0.0025;
+    this.data.takerFees = 0.002;
     this.data.exchangeName = "bitstamp";
     this.checkPrice('btc');
     this.checkPrice('eth');
