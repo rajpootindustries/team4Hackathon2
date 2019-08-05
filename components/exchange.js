@@ -12,8 +12,8 @@ class Exchange{
     this.domElement = {};
   }
   render() {
-    $(".row > #"+this.data.exchangeName+"Bitcoin").html(this.data.spotBTC);
-    $(".row > #"+this.data.exchangeName+"Ethereum").html(this.data.spotETH);
-    $(".row > #"+this.data.exchangeName+"Litecoin").html(this.data.spotLTC);
+    $(".row > #"+this.data.exchangeName+"Bitcoin").text(this.data.spotBTC);
+    $(".row > #"+this.data.exchangeName+"Ethereum").text(this.data.spotETH);
+    $(".row > #"+this.data.exchangeName+"Litecoin").text(this.data.spotLTC);
   }
 }

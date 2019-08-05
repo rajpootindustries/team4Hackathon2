@@ -4,72 +4,36 @@ class Bitfinex extends Exchange{
     this.bitfinexBTC = {};
     this.bitfinexLTC = {};
     this.bitfinexETH = {};
-    this.checkPriceBTC();
-    this.checkPriceLTC();
-    this.checkPriceETH();
     this.data.exchangeName = "bitfinex";
     this.data.takerFees = 0.002;
+    this.checkPrice('BTC');
+    this.checkPrice('ETH');
+    this.checkPrice('LTC');
+    console.log("test");
   }
 
-  checkPriceBTC() {
+  checkPrice(coinKey) {
     var ajaxConfig = {
       dataType: 'json',
       method: 'GET',
       url: 'http://localhost/team4hackathon2/server/api-proxy-bitfinex.php',
       data: {
-        id: 'BTCUSD'
+        id: coinKey+'USD'
       },
       success: function (response) {
+        console.log(response);
         for (var key in response) {
-          this.bitfinexBTC[key] = response[key];
+          this['bitfinex'+coinKey][key] = response[key];
         }
-        this.data.spotBTC = this.bitfinexBTC.last_price;
+        this.data['spot'+coinKey] = this['bitfinex'+coinKey].last_price;
       }.bind(this),
-      error: function () {
+      error: function (response) {
+        console.log(response);
         console.log('an error has occured in adding');
-      }
-    }
-    $.ajax(ajaxConfig);
-  }
-
-  checkPriceLTC() {
-    var ajaxConfig = {
-      dataType: 'json',
-      method: 'GET',
-      url: 'http://localhost/team4hackathon2/server/api-proxy-bitfinex.php',
-      data: {
-        id: 'LTCUSD'
       },
-      success: function (response) {
-        for (var key in response) {
-          this.bitfinexLTC[key] = response[key];
-        }
-        this.data.spotLTC = this.bitfinexLTC.last_price;
-      }.bind(this),
-      error: function () {
-        console.log('an error has occured in adding');
-      }
-    }
-  $.ajax(ajaxConfig);
-  }
-
-  checkPriceETH() {
-    var ajaxConfig = {
-      dataType: 'json',
-      method: 'GET',
-      url: 'http://localhost/team4hackathon2/server/api-proxy-bitfinex.php',
-      data: {
-        id: 'ETHUSD'
-      },
-      success: function (response) {
-        for (var key in response) {
-          this.bitfinexETH[key] = response[key];
-        }
-        this.data.spotETH = this.bitfinexETH.last_price;
-      }.bind(this),
-      error: function () {
-        console.log('an error has occured in adding');
-      }
+      complete: function(){
+        this.render();
+      }.bind(this)
     }
     $.ajax(ajaxConfig);
   }
