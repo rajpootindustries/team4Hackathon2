@@ -30,6 +30,7 @@ class Binance extends Exchange{
           this.data.spotBTC = this.lastPrices.BTCUSDT;
           this.data.spotETH = this.lastPrices.ETHUSDT;
           this.data.spotLTC = this.lastPrices.LTCUSDT;
+          this.render();
         }.bind(this)
       }
       $.ajax(ajaxConfig);
